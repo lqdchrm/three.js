@@ -103,7 +103,7 @@ THREE.LensFlarePlugin = function () {
 	 *
 	 */
 
-	this.render = function ( scene, camera, viewportWidth, viewportHeight ) {
+	this.render = function ( scene, camera, viewportWidth, viewportHeight, viewportX, viewportY ) {
 
 		var flares = scene.__webglFlares,
 			nFlares = flares.length;
@@ -167,8 +167,8 @@ THREE.LensFlarePlugin = function () {
 
 			screenPosition.copy( tempPosition )
 
-			screenPositionPixels.x = screenPosition.x * halfViewportWidth + halfViewportWidth;
-			screenPositionPixels.y = screenPosition.y * halfViewportHeight + halfViewportHeight;
+			screenPositionPixels.x = screenPosition.x * halfViewportWidth + halfViewportWidth + viewportX;
+			screenPositionPixels.y = screenPosition.y * halfViewportHeight + halfViewportHeight + viewportY;
 
 			// screen cull
 

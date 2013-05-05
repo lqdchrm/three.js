@@ -156,6 +156,8 @@ THREE.WebGLRenderer = function ( parameters ) {
 	_viewportHeight = 0,
 	_currentWidth = 0,
 	_currentHeight = 0,
+	_currentX = 0,
+	_currentY = 0,
 
 	_enabledAttributes = {},
 
@@ -4185,7 +4187,7 @@ THREE.WebGLRenderer = function ( parameters ) {
 
 			_lightsNeedUpdate = true;
 
-			plugins[ i ].render( scene, camera, _currentWidth, _currentHeight );
+			plugins[ i ].render( scene, camera, _currentWidth, _currentHeight, _currentX, _currentY );
 
 			// reset state after plugin (anything could have changed)
 
@@ -7076,6 +7078,8 @@ THREE.WebGLRenderer = function ( parameters ) {
 
 		_currentWidth = width;
 		_currentHeight = height;
+		_currentX = vx;
+		_currentY = vy;
 
 	};
 
